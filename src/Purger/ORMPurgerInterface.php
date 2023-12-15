@@ -6,9 +6,6 @@ namespace Doctrine\Common\DataFixtures\Purger;
 
 use Doctrine\ORM\EntityManagerInterface;
 
-/**
- * ORMPurgerInterface
- */
 interface ORMPurgerInterface extends PurgerInterface
 {
     /**

@@ -69,8 +69,7 @@ class ORMExecutorSharedFixtureTest extends BaseTestCase
         $this->assertEquals('admin@example.com', $userReference->getEmail());
     }
 
-    /** @return SharedFixtureInterface&MockObject */
-    private function getMockFixture(): SharedFixtureInterface
+    private function getMockFixture(): SharedFixtureInterface&MockObject
     {
         return $this->createMock(SharedFixtureInterface::class);
     }

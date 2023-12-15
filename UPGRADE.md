@@ -33,6 +33,14 @@ For the following method, the `class` param is now mandatory:
 The following method was removed:
 - `ReferenceRepository::getReferences`
 
+The following classes are now final, each of them has an interface you can implement:
+- `Doctrine\Common\DataFixtures\Executor\MongoDBExecutor`
+- `Doctrine\Common\DataFixtures\Executor\ORMExecutor`
+- `Doctrine\Common\DataFixtures\Executor\PHPCSExecutor`
+- `Doctrine\Common\DataFixtures\Purger\MongoDBPurger`
+- `Doctrine\Common\DataFixtures\Purger\ORMPurger`
+- `Doctrine\Common\DataFixtures\Purger\PHPCSPurger`
+
 # Upgrade to 1.8
 
 ## Deprecated closure loggers in favor of PSR-3
