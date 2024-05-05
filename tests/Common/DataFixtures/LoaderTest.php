@@ -6,7 +6,9 @@ namespace Doctrine\Tests\Common\DataFixtures;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\Loader;
+use Doctrine\Common\DataFixtures\ReferenceRepository;
 use Doctrine\Common\DataFixtures\SharedFixtureInterface;
+use Doctrine\Persistence\ObjectManager;
 use TestFixtures\MyFixture1;
 use TestFixtures\NotAFixture;
 
@@ -18,11 +20,9 @@ class LoaderTest extends BaseTestCase
     public function testLoadFromDirectory(): void
     {
         $loader = new Loader();
-        $loader->addFixture($this->getMockBuilder(FixtureInterface::class)->setMockClassName('Mock1')->getMock());
-        $loader->addFixture($this->getMockBuilder(FixtureInterface::class)->setMockClassName('Mock2')->getMock());
-        $loader->addFixture(
-            $this->getMockBuilder(SharedFixtureInterface::class)->setMockClassName('Mock3')->getMock(),
-        );
+        $loader->addFixture(new DummyFixtureOne());
+        $loader->addFixture(new DummyFixtureTwo());
+        $loader->addFixture(new SharedDummyFixture());
 
         $this->assertCount(3, $loader->getFixtures());
 
@@ -35,11 +35,9 @@ class LoaderTest extends BaseTestCase
     public function testLoadFromFile(): void
     {
         $loader = new Loader();
-        $loader->addFixture($this->getMockBuilder(FixtureInterface::class)->setMockClassName('Mock1')->getMock());
-        $loader->addFixture($this->getMockBuilder(FixtureInterface::class)->setMockClassName('Mock2')->getMock());
-        $loader->addFixture(
-            $this->getMockBuilder(SharedFixtureInterface::class)->setMockClassName('Mock3')->getMock(),
-        );
+        $loader->addFixture(new DummyFixtureOne());
+        $loader->addFixture(new DummyFixtureTwo());
+        $loader->addFixture(new SharedDummyFixture());
 
         $this->assertCount(3, $loader->getFixtures());
 
@@ -61,5 +59,30 @@ class LoaderTest extends BaseTestCase
         $fixture = $loader->getFixture(MyFixture1::class);
 
         $this->assertInstanceOf(MyFixture1::class, $fixture);
+    }
+}
+
+final class DummyFixtureOne implements FixtureInterface
+{
+    public function load(ObjectManager $manager): void
+    {
+    }
+}
+
+final class DummyFixtureTwo implements FixtureInterface
+{
+    public function load(ObjectManager $manager): void
+    {
+    }
+}
+
+final class SharedDummyFixture implements SharedFixtureInterface
+{
+    public function load(ObjectManager $manager): void
+    {
+    }
+
+    public function setReferenceRepository(ReferenceRepository $referenceRepository): void
+    {
     }
 }
