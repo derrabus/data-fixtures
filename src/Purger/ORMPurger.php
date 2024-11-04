@@ -29,10 +29,8 @@ class ORMPurger implements PurgerInterface, ORMPurgerInterface
 
     /**
      * If the purge should be done through DELETE or TRUNCATE statements
-     *
-     * @var int
      */
-    private $purgeMode = self::PURGE_MODE_DELETE;
+    private int $purgeMode = self::PURGE_MODE_DELETE;
 
     /**
      * Table/view names to be excluded from purge
