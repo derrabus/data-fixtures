@@ -28,17 +28,13 @@ abstract class AbstractExecutor implements LoggerAwareInterface
 
     /**
      * Purger instance for purging database before loading data fixtures
-     *
-     * @var PurgerInterface|null
      */
-    protected $purger;
+    protected PurgerInterface|null $purger = null;
 
     /**
      * Fixture reference repository
-     *
-     * @var ReferenceRepository
      */
-    protected $referenceRepository;
+    protected ReferenceRepository $referenceRepository;
 
     public function __construct(ObjectManager $manager)
     {

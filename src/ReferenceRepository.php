@@ -102,10 +102,9 @@ class ReferenceRepository
     /**
      * Store the identifier of a reference
      *
-     * @param mixed        $identity
      * @param class-string $class
      */
-    public function setReferenceIdentity(string $name, $identity, string $class): void
+    public function setReferenceIdentity(string $name, mixed $identity, string $class): void
     {
         $this->identitiesByClass[$class][$name] = $identity;
     }

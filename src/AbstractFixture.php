@@ -17,10 +17,8 @@ abstract class AbstractFixture implements SharedFixtureInterface
 {
     /**
      * Fixture reference repository
-     *
-     * @var ReferenceRepository|null
      */
-    protected $referenceRepository;
+    protected ReferenceRepository|null $referenceRepository = null;
 
     public function setReferenceRepository(ReferenceRepository $referenceRepository): void
     {
