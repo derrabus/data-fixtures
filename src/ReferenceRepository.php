@@ -25,7 +25,7 @@ class ReferenceRepository
      * List of named references to the fixture objects
      * gathered during fixure loading
      *
-     * @psalm-var array<class-string, array<string, object>>
+     * @phpstan-var array<class-string, array<string, object>>
      */
     private array $referencesByClass = [];
 
@@ -34,7 +34,7 @@ class ReferenceRepository
      * in case a reference gets no longer managed, it will
      * use a proxy referenced by this identity
      *
-     * @psalm-var array<class-string, array<string, mixed>>
+     * @phpstan-var array<class-string, array<string, mixed>>
      */
     private array $identitiesByClass = [];
 
@@ -140,9 +140,9 @@ class ReferenceRepository
      * Loads an object using stored reference
      * named by $name
      *
-     * @psalm-param class-string<T> $class
+     * @phpstan-param class-string<T> $class
      *
-     * @psalm-return T
+     * @phpstan-return T
      *
      * @throws OutOfBoundsException - if repository does not exist.
      *
@@ -172,7 +172,7 @@ class ReferenceRepository
      * Check if an object is stored using reference
      * named by $name
      *
-     * @psalm-param class-string $class
+     * @phpstan-param class-string $class
      */
     public function hasReference(string $name, string $class): bool
     {
@@ -208,7 +208,7 @@ class ReferenceRepository
     /**
      * Get all stored identities
      *
-     * @psalm-return array<class-string, array<string, object>>
+     * @phpstan-return array<class-string, array<string, object>>
      */
     public function getIdentitiesByClass(): array
     {
@@ -218,7 +218,7 @@ class ReferenceRepository
     /**
      * Get all stored references
      *
-     * @psalm-return array<class-string, array<string, object>>
+     * @phpstan-return array<class-string, array<string, object>>
      */
     public function getReferencesByClass(): array
     {

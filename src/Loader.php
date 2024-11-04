@@ -39,14 +39,14 @@ class Loader
     /**
      * Array of fixture object instances to execute.
      *
-     * @psalm-var array<class-string<FixtureInterface>, FixtureInterface>
+     * @phpstan-var array<class-string<FixtureInterface>, FixtureInterface>
      */
     private array $fixtures = [];
 
     /**
      * Array of ordered fixture object instances.
      *
-     * @psalm-var array<class-string<FixtureInterface>|int, FixtureInterface>
+     * @phpstan-var array<class-string<FixtureInterface>|int, FixtureInterface>
      */
     private array $orderedFixtures = [];
 
@@ -166,7 +166,7 @@ class Loader
     /**
      * Returns the array of data fixtures to execute.
      *
-     * @psalm-return array<class-string<FixtureInterface>|int, FixtureInterface>
+     * @phpstan-return array<class-string<FixtureInterface>|int, FixtureInterface>
      */
     public function getFixtures()
     {
@@ -191,7 +191,7 @@ class Loader
      * Check if a given fixture is transient and should not be considered a data fixtures
      * class.
      *
-     * @psalm-param class-string<object> $className
+     * @phpstan-param class-string<object> $className
      */
     public function isTransient(string $className): bool
     {
@@ -247,7 +247,7 @@ class Loader
      */
     private function orderFixturesByDependencies(): void
     {
-        /** @psalm-var array<class-string<DependentFixtureInterface>, int> */
+        /** @phpstan-var array<class-string<DependentFixtureInterface>, int> */
         $sequenceForClasses = [];
 
         // If fixtures were already ordered by number then we need
@@ -348,7 +348,7 @@ class Loader
         $this->orderedFixtures = array_merge($this->orderedFixtures, $orderedFixtures);
     }
 
-    /** @psalm-param iterable<class-string> $dependenciesClasses */
+    /** @phpstan-param iterable<class-string> $dependenciesClasses */
     private function validateDependencies(iterable $dependenciesClasses): bool
     {
         $loadedFixtureClasses = array_keys($this->fixtures);
@@ -366,10 +366,10 @@ class Loader
     }
 
     /**
-     * @psalm-param array<class-string<DependentFixtureInterface>, int> $sequences
-     * @psalm-param iterable<class-string<FixtureInterface>>|null       $classes
+     * @phpstan-param array<class-string<DependentFixtureInterface>, int> $sequences
+     * @phpstan-param iterable<class-string<FixtureInterface>>|null       $classes
      *
-     * @psalm-return array<class-string<FixtureInterface>>
+     * @phpstan-return array<class-string<FixtureInterface>>
      */
     private function getUnsequencedClasses(array $sequences, iterable|null $classes = null): array
     {
@@ -393,10 +393,10 @@ class Loader
     /**
      * Load fixtures from files contained in iterator.
      *
-     * @psalm-param Iterator<SplFileInfo> $iterator Iterator over files from
+     * @phpstan-param Iterator<SplFileInfo> $iterator Iterator over files from
      *                                              which fixtures should be loaded.
      *
-     * @psalm-return list<FixtureInterface> $fixtures Array of loaded fixture object instances.
+     * @phpstan-return list<FixtureInterface> $fixtures Array of loaded fixture object instances.
      */
     private function loadFromIterator(Iterator $iterator): array
     {

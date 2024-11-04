@@ -5,9 +5,15 @@
     "docsSlug": "doctrine-data-fixtures",
     "versions": [
         {
+            "name": "2.0",
+            "branchName": "2.0.x",
+            "slug": "latest",
+            "upcoming": true
+        },
+        {
             "name": "1.8",
             "branchName": "1.8.x",
-            "slug": "latest",
+            "slug": "1.8",
             "upcoming": true
         },
         {
