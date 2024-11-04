@@ -79,10 +79,10 @@ abstract class AbstractFixture implements SharedFixtureInterface
      *
      * @see ReferenceRepository::getReference()
      *
-     * @psalm-param class-string<T>|null $class
+     * @phpstan-param class-string<T>|null $class
      *
      * @return object
-     * @psalm-return ($class is null ? object : T)
+     * @phpstan-return ($class is null ? object : T)
      *
      * @template T of object
      */
@@ -106,7 +106,7 @@ abstract class AbstractFixture implements SharedFixtureInterface
      *
      * @see ReferenceRepository::hasReference()
      *
-     * @psalm-param class-string|null $class
+     * @phpstan-param class-string|null $class
      *
      * @return bool
      */
