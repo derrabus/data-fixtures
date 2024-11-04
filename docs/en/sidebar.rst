@@ -1,19 +1,15 @@
-.. toc::
+:orphan:
 
-   .. tocheader:: How-to guides
+.. toctree::
+   :caption: How-to guides
+   :depth: 3
 
-   .. toctree::
-      :depth: 3
+   how-to/loading-fixtures
+   how-to/sharing-objects-between-fixtures
+   how-to/fixture-ordering
 
-      how-to/loading-fixtures
-      how-to/sharing-objects-between-fixtures
-      how-to/fixture-ordering
+.. toctree::
+   :caption: Explanations
+   :depth: 3
 
-.. toc::
-
-   .. tocheader:: Explanations
-
-   .. toctree::
-      :depth: 3
-
-      explanation/transactions-and-purging
+   explanation/transactions-and-purging
