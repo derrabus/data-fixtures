@@ -8,19 +8,14 @@ use Doctrine\Common\DataFixtures\Executor\AbstractExecutor;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\DataFixtures\Purger\PurgerInterface;
-use Doctrine\Deprecations\PHPUnit\VerifyDeprecations;
 use Doctrine\Persistence\ObjectManager;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\Test\TestLogger;
 
 final class AbstractExecutorTest extends TestCase
 {
-    use VerifyDeprecations;
-
     public function testLogOnLoad(): void
     {
-        $this->expectNoDeprecationWithIdentifier('https://github.com/doctrine/data-fixtures/pull/462');
-
         $logger   = new TestLogger();
         $executor = $this->bootstrapExecutor();
         $executor->setLogger($logger);
@@ -36,8 +31,6 @@ final class AbstractExecutorTest extends TestCase
 
     public function testLogOnPurge(): void
     {
-        $this->expectNoDeprecationWithIdentifier('https://github.com/doctrine/data-fixtures/pull/462');
-
         $logger   = new TestLogger();
         $executor = $this->bootstrapExecutor();
         $executor->setLogger($logger);
