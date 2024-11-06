@@ -8,7 +8,7 @@ use Closure;
 use Doctrine\Common\DataFixtures\Executor\MultipleTransactionORMExecutor;
 use Doctrine\Common\DataFixtures\Executor\ORMExecutor;
 use Doctrine\Common\DataFixtures\FixtureInterface;
-use Doctrine\Common\DataFixtures\Purger\ORMPurger;
+use Doctrine\Common\DataFixtures\Purger\ORMPurgerInterface;
 use Doctrine\Common\EventManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Tests\Common\DataFixtures\BaseTestCase;
@@ -123,21 +123,18 @@ class ORMExecutorTest extends BaseTestCase
         @$executor->execute([$fixture, $fixture]);
     }
 
-    /** @return EntityManagerInterface&MockObject */
-    private function getMockEntityManager(): EntityManagerInterface
+    private function getMockEntityManager(): EntityManagerInterface&MockObject
     {
         return $this->createMock(ForwardCompatibleEntityManager::class);
     }
 
-    /** @return FixtureInterface&MockObject */
-    private function getMockFixture(): FixtureInterface
+    private function getMockFixture(): FixtureInterface&MockObject
     {
         return $this->createMock(FixtureInterface::class);
     }
 
-    /** @return ORMPurger&MockObject */
-    private function getMockPurger(): ORMPurger
+    private function getMockPurger(): ORMPurgerInterface&MockObject
     {
-        return $this->createMock(ORMPurger::class);
+        return $this->createMock(ORMPurgerInterface::class);
     }
 }

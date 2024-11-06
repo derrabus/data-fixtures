@@ -66,6 +66,11 @@ parameters:
 			path: src/Purger/PHPCRPurger.php
 
 		-
+			message: "#^Parameter \\$dm of method Doctrine\\\\Common\\\\DataFixtures\\\\Purger\\\\PHPCRPurgerInterface\\:\\:setDocumentManager\\(\\) has invalid type Doctrine\\\\Common\\\\DataFixtures\\\\Purger\\\\DocumentManager\\.$#"
+			count: 1
+			path: src/Purger/PHPCRPurgerInterface.php
+
+		-
 			message: "#^Access to an undefined property Doctrine\\\\Persistence\\\\Mapping\\\\ClassMetadata\\<T of object\\>\\:\\:\\$name\\.$#"
 			count: 1
 			path: src/ReferenceRepository.php
@@ -97,7 +102,7 @@ parameters:
 
 		-
 			message: "#^Method Doctrine\\\\Tests\\\\Common\\\\DataFixtures\\\\Executor\\\\PHPCRExecutorTest\\:\\:getDocumentManager\\(\\) has invalid return type Doctrine\\\\ODM\\\\PHPCR\\\\DocumentManager\\.$#"
-			count: 2
+			count: 1
 			path: tests/Common/DataFixtures/Executor/PHPCRExecutorTest.php
 
 		-

@@ -6,7 +6,7 @@ namespace Doctrine\Tests\Common\DataFixtures\Executor;
 
 use Doctrine\Common\DataFixtures\Executor\PHPCRExecutor;
 use Doctrine\Common\DataFixtures\FixtureInterface;
-use Doctrine\Common\DataFixtures\Purger\PHPCRPurger;
+use Doctrine\Common\DataFixtures\Purger\PHPCRPurgerInterface;
 use Doctrine\ODM\PHPCR\DocumentManager;
 use Doctrine\Tests\Common\DataFixtures\BaseTestCase;
 use Exception;
@@ -119,14 +119,12 @@ class PHPCRExecutorTest extends BaseTestCase
         }
     }
 
-    /** @return PHPCRPurger&MockObject */
-    private function getPurger(): PHPCRPurger
+    private function getPurger(): PHPCRPurgerInterface&MockObject
     {
-        return $this->createMock(PHPCRPurger::class);
+        return $this->createMock(PHPCRPurgerInterface::class);
     }
 
-    /** @return DocumentManager&MockObject */
-    private function getDocumentManager(): DocumentManager
+    private function getDocumentManager(): DocumentManager&MockObject
     {
         if (! class_exists(DocumentManager::class)) {
             $this->markTestSkipped('Missing doctrine/phpcr-odm');
@@ -143,8 +141,7 @@ class PHPCRExecutorTest extends BaseTestCase
             ->getMock();
     }
 
-    /** @return FixtureInterface&MockObject */
-    private function getMockFixture(): FixtureInterface
+    private function getMockFixture(): FixtureInterface&MockObject
     {
         return $this->createMock(FixtureInterface::class);
     }
