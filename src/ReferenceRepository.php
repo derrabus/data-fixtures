@@ -73,7 +73,7 @@ class ReferenceRepository
      * @param object $reference Reference object
      * @param object $uow       Unit of work
      *
-     * @return array
+     * @return mixed
      */
     protected function getIdentifier(object $reference, object $uow)
     {
@@ -324,7 +324,7 @@ class ReferenceRepository
     /**
      * Get all stored identities
      *
-     * @phpstan-return array<class-string, array<string, object>>
+     * @phpstan-return array<class-string, array<string, mixed>>
      */
     public function getIdentitiesByClass(): array
     {
